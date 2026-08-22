@@ -23,6 +23,10 @@ const welcome = require('../commands/welcome');
     assert.strictEqual(botData.welcomeSettings[groupId].welcomeEnabled, true);
     assert.strictEqual(botData.welcomeSettings[groupId].goodbyeEnabled, true);
     assert.strictEqual(saveCount, 2);
+    assert.ok(botData.welcomeSettings[groupId].welcomeText.includes('ITACHI UCHIHA MD'));
+    assert.ok(botData.welcomeSettings[groupId].welcomeText.includes('POWERED BY ALI HAIDER ®'));
+    assert.ok(botData.welcomeSettings[groupId].goodbyeText.includes('ITACHI UCHIHA MD'));
+    assert.ok(botData.welcomeSettings[groupId].goodbyeText.includes('POWERED BY ALI HAIDER ®'));
 
     await welcome.handleParticipantUpdate(sock, {
         id: groupId,
@@ -33,6 +37,7 @@ const welcome = require('../commands/welcome');
     assert.deepStrictEqual(sent.at(-1).content.mentions, ['111@s.whatsapp.net']);
     assert.ok(sent.at(-1).content.text.includes('@111'));
     assert.ok(sent.at(-1).content.text.includes('Test Group'));
+    assert.ok(sent.at(-1).content.text.includes('SHADOW REALM'));
 
     await welcome.handleParticipantUpdate(sock, {
         id: groupId,
@@ -41,7 +46,8 @@ const welcome = require('../commands/welcome');
     }, botData, () => saveCount++);
     assert.deepStrictEqual(sent.at(-1).content.mentions, ['222@s.whatsapp.net']);
     assert.ok(sent.at(-1).content.text.includes('@222'));
-    assert.ok(sent.at(-1).content.text.toLowerCase().includes('left'));
+    assert.ok(sent.at(-1).content.text.toLowerCase().includes('farewell'));
+    assert.ok(sent.at(-1).content.text.includes('SHADOWS'));
 
     const before = sent.length;
     botData.welcomeSettings[groupId].welcomeEnabled = false;

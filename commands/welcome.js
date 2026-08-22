@@ -1,4 +1,35 @@
-const DEFAULT_WELCOME = `╔═══〔 ⚔️ ITACHI UCHIHA MD 〕═══╗
+const DEFAULT_WELCOME = `╔═══〔 👁️ ITACHI UCHIHA MD 〕═══╗
+
+🔥 *A NEW SHINOBI HAS ENTERED THE SHADOW REALM*
+
+Welcome {user} to *{group}*.
+
+> _"The night is quiet, but the will of a shinobi never fades."_
+
+👥 Shinobi in the realm: {count}
+🩸 Walk with discipline. Protect the peace.
+
+⚔️ *POWERED BY ALI HAIDER ®*
+╚════════════════════════╝`;
+
+const DEFAULT_GOODBYE = `╔═══〔 👁️ ITACHI UCHIHA MD 〕═══╗
+
+🌑 *A SHINOBI WALKS INTO THE SHADOWS*
+
+Farewell {user}.
+The name of *{group}* will remember your path.
+
+> _"Every goodbye leaves a lesson in the silence."_
+
+👥 Shinobi remaining: {count}
+🌘 The shadows move on, and the story continues.
+
+⚔️ *POWERED BY ALI HAIDER ®*
+╚════════════════════════╝`;
+
+const LEGACY_WELCOME = '👋 Welcome {user} to *{group}*!';
+const LEGACY_GOODBYE = '👋 Goodbye {user}. You have left *{group}*.';
+const PREVIOUS_DEFAULT_WELCOME = `╔═══〔 ⚔️ ITACHI UCHIHA MD 〕═══╗
 
 🔥 *A NEW SHINOBI HAS ENTERED THE REALM*
 
@@ -10,8 +41,7 @@ Welcome {user} to *{group}*!
 ⚡ Respect the rules. Respect the realm.
 
 ╚════════════════════════╝`;
-
-const DEFAULT_GOODBYE = `╔═══〔 ⚔️ ITACHI UCHIHA MD 〕═══╗
+const PREVIOUS_DEFAULT_GOODBYE = `╔═══〔 ⚔️ ITACHI UCHIHA MD 〕═══╗
 
 🌑 *A SHINOBI HAS LEFT THE REALM*
 
@@ -24,9 +54,6 @@ Farewell {user}.
 ⚡ The realm moves on.
 
 ╚════════════════════════╝`;
-
-const LEGACY_WELCOME = '👋 Welcome {user} to *{group}*!';
-const LEGACY_GOODBYE = '👋 Goodbye {user}. You have left *{group}*.';
 
 function getConfig(botData, groupId) {
     if (!botData || !groupId) return null;
@@ -42,8 +69,8 @@ function getConfig(botData, groupId) {
     const config = botData.welcomeSettings[groupId];
     if (typeof config.welcomeEnabled !== 'boolean') config.welcomeEnabled = false;
     if (typeof config.goodbyeEnabled !== 'boolean') config.goodbyeEnabled = false;
-    if (typeof config.welcomeText !== 'string' || !config.welcomeText.trim() || config.welcomeText === LEGACY_WELCOME) config.welcomeText = DEFAULT_WELCOME;
-    if (typeof config.goodbyeText !== 'string' || !config.goodbyeText.trim() || config.goodbyeText === LEGACY_GOODBYE) config.goodbyeText = DEFAULT_GOODBYE;
+    if (typeof config.welcomeText !== 'string' || !config.welcomeText.trim() || config.welcomeText === LEGACY_WELCOME || config.welcomeText === PREVIOUS_DEFAULT_WELCOME) config.welcomeText = DEFAULT_WELCOME;
+    if (typeof config.goodbyeText !== 'string' || !config.goodbyeText.trim() || config.goodbyeText === LEGACY_GOODBYE || config.goodbyeText === PREVIOUS_DEFAULT_GOODBYE) config.goodbyeText = DEFAULT_GOODBYE;
     return config;
 }
 
