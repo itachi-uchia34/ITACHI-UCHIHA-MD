@@ -19,7 +19,6 @@
     0 0 36px #ff4500,
     0 0 48px #8b0000;
   padding: 12px 0;">
-  🔥 WAKE UP TO REALITY 🔥
     "> Built on Baileys • Designed for Speed • Enhanced for Stability • POWERED BY ⚔️ ALI-HAIDER ⚔️
 </div>
 </div>
