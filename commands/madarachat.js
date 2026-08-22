@@ -51,12 +51,12 @@ function isMadaraPrompt(text = '') {
     return /\b(madara|uchiha|wake up to reality|shinobi|infinite tsukuyomi)\b/i.test(text);
 }
 
-async function madaraCommand(sock, from, msg, q) {
+async function itachiCommand(sock, from, msg, q) {
     const input = (q || '').trim();
     const quote = chooseQuote(input);
     const response = input
-        ? `╔══〔 𝗠𝗔𝗗𝗔𝗥𝗔 𝗨𝗖𝗛𝗜𝗛𝗔 〕══╗\n\n${quote}\n\n🗡️ Your question: ${input}\n\n╚════════════════════╝`
-        : `╔══〔 𝗠𝗔𝗗𝗔𝗥𝗔 𝗨𝗖𝗛𝗜𝗛𝗔 〕══╗\n\n${quote}\n\nUse .madara <your question> to consult the realm.\n\n╚════════════════════╝`;
+        ? `╔══〔 𝗜𝗧𝗔𝗖𝗛𝗜 𝗨𝗖𝗛𝗜𝗛𝗔 〕══╗\n\n${quote}\n\n🗡️ Your question: ${input}\n\n╚════════════════════╝`
+        : `╔══〔 𝗜𝗧𝗔𝗖𝗛𝗜 𝗨𝗖𝗛𝗜𝗛𝗔 〕══╗\n\n${quote}\n\nUse .itachi <your question> to consult the realm.\n\n╚════════════════════╝`;
     return sock.sendMessage(from, { text: response }, { quoted: msg });
 }
 
@@ -106,4 +106,4 @@ async function handleAutoReply(sock, from, msg, text, sender, isGroup, isAdmin, 
     return true;
 }
 
-module.exports = { QUOTES, getConfig, madaraCommand, madaraAutoCommand, madaraConfig, handleAutoReply, chooseQuote };
+module.exports = { QUOTES, getConfig, itachiCommand, madaraAutoCommand, madaraConfig, handleAutoReply, chooseQuote };

@@ -185,11 +185,11 @@ The default welcome and goodbye templates use the Madara Uchiha visual theme, in
 
 ### Itachi chat and auto-replies
 
-The quote-based Madara chat system provides randomized Madara-themed responses and optional keyword-triggered replies. Auto-replies are stored per group and use a cooldown to reduce repeated responses.
+The `.itachi` chat command provides randomized Itachi-themed responses, while the optional keyword-triggered auto-reply system remains configurable with `.madaraauto` and `.madaraconfig`. Auto-replies are stored per group and use a cooldown to reduce repeated responses.
 
 ```text
-.madara
-.madara <question or prompt>
+.itachi
+.itachi <question or prompt>
 .madaraauto on
 .madaraauto off
 .madaraauto text <template>

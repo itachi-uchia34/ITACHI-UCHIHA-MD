@@ -270,7 +270,7 @@ const commands = {
 
     // AI
     ai: require('./commands/ai'),
-    madara: require('./commands/madarachat').madaraCommand,
+    itachi: require('./commands/madarachat').itachiCommand,
     rank: require('./commands/levels').rankCommand,
     profile: require('./commands/levels').rankCommand,
     leaderboard: require('./commands/levels').leaderboardCommand,
@@ -1620,7 +1620,7 @@ class BotSession {
 
                                         // ===== AI =====
                                         case 'ai': await commands.ai(this.sock, from, msg, isAdmin, this, args); break;
-                                        case 'madara': await commands.madara(this.sock, from, msg, q); break;
+                                        case 'itachi': await commands.itachi(this.sock, from, msg, q); break;
                                         case 'rank': await commands.rank(this.sock, from, msg, q, botData, sender); break;
                                         case 'profile': await commands.profile(this.sock, from, msg, q, botData, sender); break;
                                         case 'leaderboard': case 'top': await commands.leaderboard(this.sock, from, msg, botData); break;
