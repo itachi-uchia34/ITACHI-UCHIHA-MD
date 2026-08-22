@@ -37,7 +37,8 @@ const welcome = require('../commands/welcome');
     assert.deepStrictEqual(sent.at(-1).content.mentions, ['111@s.whatsapp.net']);
     assert.ok(sent.at(-1).content.text.includes('@111'));
     assert.ok(sent.at(-1).content.text.includes('Test Group'));
-    assert.ok(sent.at(-1).content.text.includes('SHADOW REALM'));
+    assert.ok(sent.at(-1).content.text.toUpperCase().includes('SHADOW REALM'));
+    assert.ok(sent.at(-1).content.text.includes('ITACHI UCHIHA WELCOMES A NEW SHINOBI'));
 
     await welcome.handleParticipantUpdate(sock, {
         id: groupId,
@@ -47,7 +48,8 @@ const welcome = require('../commands/welcome');
     assert.deepStrictEqual(sent.at(-1).content.mentions, ['222@s.whatsapp.net']);
     assert.ok(sent.at(-1).content.text.includes('@222'));
     assert.ok(sent.at(-1).content.text.toLowerCase().includes('farewell'));
-    assert.ok(sent.at(-1).content.text.includes('SHADOWS'));
+    assert.ok(sent.at(-1).content.text.toUpperCase().includes('SHADOWS'));
+    assert.ok(sent.at(-1).content.text.includes("ITACHI UCHIHA'S FAREWELL"));
 
     const before = sent.length;
     botData.welcomeSettings[groupId].welcomeEnabled = false;

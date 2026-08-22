@@ -1,28 +1,32 @@
 const DEFAULT_WELCOME = `╔═══〔 👁️ ITACHI UCHIHA MD 〕═══╗
 
-🔥 *A NEW SHINOBI HAS ENTERED THE SHADOW REALM*
+🔥 *ITACHI UCHIHA WELCOMES A NEW SHINOBI*
 
 Welcome {user} to *{group}*.
+Your name has entered the Shadow Realm.
 
 > _"The night is quiet, but the will of a shinobi never fades."_
 
+🩸 *ITACHI'S DECREE*
+Walk with discipline. Protect the peace.
 👥 Shinobi in the realm: {count}
-🩸 Walk with discipline. Protect the peace.
 
 ⚔️ *POWERED BY ALI HAIDER ®*
 ╚════════════════════════╝`;
 
 const DEFAULT_GOODBYE = `╔═══〔 👁️ ITACHI UCHIHA MD 〕═══╗
 
-🌑 *A SHINOBI WALKS INTO THE SHADOWS*
+🌑 *ITACHI UCHIHA'S FAREWELL*
 
 Farewell {user}.
-The name of *{group}* will remember your path.
+Your path now returns to the shadows.
+*{group}* will remember your presence.
 
 > _"Every goodbye leaves a lesson in the silence."_
 
+🕊️ *ITACHI'S LAST WORDS*
+Leave with honor. The story continues beyond the darkness.
 👥 Shinobi remaining: {count}
-🌘 The shadows move on, and the story continues.
 
 ⚔️ *POWERED BY ALI HAIDER ®*
 ╚════════════════════════╝`;
