@@ -1,0 +1,11 @@
+node_modules
+.env
+session
+logs/*.log
+database/*.json
+!database/premium.seed.json
+package-lock.json
+pnpm-lock.yaml
+*.txt
+*.py
+.DS_Store

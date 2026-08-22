@@ -1,0 +1,12 @@
+{
+  "name": "ITACHI UCHIHA MD",
+  "short_name": "ITACHI MD",
+  "description": "Cross-platform WhatsApp pairing and bot dashboard for ITACHI UCHIHA MD.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#070507",
+  "theme_color": "#09070a",
+  "orientation": "portrait-primary",
+  "lang": "en"
+}

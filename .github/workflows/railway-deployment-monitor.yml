@@ -1,0 +1,56 @@
+name: CI validation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate bot before Railway deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check index.js
+          node --check commands/welcome.js
+          node --check commands/allmenu.js
+          node --check commands/repo.js
+          node --check lib/messageConfig.js
+
+      - name: Run welcome, goodbye, menu, and newsletter tests
+        run: |
+          node test/welcome.test.js
+          node scripts/test_menu_audio.js
+          node scripts/test_menu_runtime_sequence.js
+          node scripts/test_menu_categories.js
+
+      - name: Confirm startup assets
+        run: |
+          test -s assets/madara_menu.png
+          test -s song.mp3
