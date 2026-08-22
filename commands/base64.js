@@ -21,7 +21,7 @@ module.exports = async function(sock, chatId, msg, q) {
                 text: `🔐 *ITACHI UCHIHA MD ENCODER* 🔐\n\n` +
                       `📝 *Original:* ${text}\n` +
                       `🔒 *Encoded:*\n\`${result}\`\n\n` +
-                      `_POWERED BY ALI HAIDER ®_`
+                      `_POWERED BY ⚔️ ALI-HAIDER ⚔️_`
             }, { quoted: msg });
         } else if (action === 'dec' || action === 'decode') {
             try {
@@ -30,7 +30,7 @@ module.exports = async function(sock, chatId, msg, q) {
                     text: `🔓 *ITACHI UCHIHA MD DECODER* 🔓\n\n` +
                           `🔒 *Encoded:* ${text}\n` +
                           `📝 *Decoded:*\n\`${result}\`\n\n` +
-                          `_POWERED BY ALI HAIDER ®`
+                          `_POWERED BY ⚔️ ALI-HAIDER ⚔️`
                 }, { quoted: msg });
             } catch (e) {
                 await sock.sendMessage(chatId, { text: '❌ Invalid Base64 string!' }, { quoted: msg });

@@ -30,7 +30,7 @@ module.exports = async function(sock, chatId, msg, q) {
                      `🏛️ *Bank:* ${bank}\n` +
                      `🌍 *Country:* ${country}\n\n` +
                      `⚠️ For educational purposes only!\n\n` +
-                     `_POWERED BY ALI HAIDER ®`;
+                     `_POWERED BY ⚔️ ALI-HAIDER ⚔️`;
 
         await sock.sendMessage(chatId, { text }, { quoted: msg });
     } catch (err) {

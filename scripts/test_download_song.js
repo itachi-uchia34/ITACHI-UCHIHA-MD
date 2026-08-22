@@ -21,7 +21,7 @@ function makeSock() {
   for (const command of ['.song', '.play', '.ytmp3', '.ytmp4', '.video', '.youtube', '.spotify', '.spdl', '.tiktok', '.ttdl', '.insta', '.igdl', '.facebook', '.fbdown', '.pinterest', '.pindl', '.twitter', '.twtdl', '.reddit', '.reddown', '.gdrive', '.mf', '.apk', '.directdl', '.urldl', '.download']) {
     assert(menuText.includes(command), `download menu missing ${command}`);
   }
-  assert(menuText.includes('POWERED BY ALI HAIDER ®'), 'download menu branding missing');
+  assert(menuText.includes('POWERED BY ⚔️ ALI-HAIDER ⚔️'), 'download menu branding missing');
 
   const songSock = makeSock();
   await song(songSock, '120@s.whatsapp.net', { key: { id: 'song' }, message: { conversation: '.song' } });

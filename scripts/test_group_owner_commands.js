@@ -32,7 +32,7 @@ const msg = { key: { remoteJid: '120@g.us' } };
   const deniedGroup = makeSock(metadata); await group.groupclose(deniedGroup, '120@g.us', msg, false); assert(/Only group admins/.test(deniedGroup.sent[0].payload.text), 'group admin denial failed');
   const deniedPrivate = makeSock(metadata); await group.groupopen(deniedPrivate, '2@s.whatsapp.net', msg, true); assert(/only available in groups/.test(deniedPrivate.sent[0].payload.text), 'private chat denial failed');
   for (const [name, fn, text] of [['botinfo', owner.botinfo], ['health', owner.health], ['ownerhelp', owner.ownerhelp]]) {
-    const sock = makeSock(); await fn(sock, '2@s.whatsapp.net', msg, true); assert(sock.sent.length === 1, `${name} owner response failed`); assert(/POWERED BY ALI HAIDER ®/.test(sock.sent[0].payload.text), `${name} branding missing`);
+    const sock = makeSock(); await fn(sock, '2@s.whatsapp.net', msg, true); assert(sock.sent.length === 1, `${name} owner response failed`); assert(/POWERED BY ⚔️ ALI-HAIDER ⚔️/.test(sock.sent[0].payload.text), `${name} branding missing`);
   }
   const deniedOwner = makeSock(); await owner.botinfo(deniedOwner, '2@s.whatsapp.net', msg, false); assert(/restricted to the bot owner/.test(deniedOwner.sent[0].payload.text), 'owner denial failed');
   console.log('PASS group and owner command smoke tests');

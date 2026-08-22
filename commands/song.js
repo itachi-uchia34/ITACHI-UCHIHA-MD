@@ -136,7 +136,7 @@ async function fetchAudioBuffer(audioUrl) {
 }
 
 async function sendDownloadNotice(sock, chatId, message, video) {
-  const caption = `🎵 *DOWNLOADING AUDIO*\n\nTitle: *${video.title || 'Unknown'}*\nDuration: *${video.timestamp || 'N/A'}*\n\nPOWERED BY ALI HAIDER ®`;
+  const caption = `🎵 *DOWNLOADING AUDIO*\n\nTitle: *${video.title || 'Unknown'}*\nDuration: *${video.timestamp || 'N/A'}*\n\nPOWERED BY ⚔️ ALI-HAIDER ⚔️`;
   if (!video.thumbnail) return sock.sendMessage(chatId, { text: caption }, { quoted: message });
   try {
     return await sock.sendMessage(chatId, { image: { url: video.thumbnail }, caption }, { quoted: message });
@@ -149,7 +149,7 @@ async function songCommand(sock, chatId, message, requestedQuery = '') {
   try {
     const query = extractQuery(message, requestedQuery);
     if (!query || /^\.(?:song|play|ytmp3)$/i.test(query)) {
-      await sock.sendMessage(chatId, { text: 'Usage: .song <song name or YouTube link>\n\nPOWERED BY ALI HAIDER ®' }, { quoted: message });
+      await sock.sendMessage(chatId, { text: 'Usage: .song <song name or YouTube link>\n\nPOWERED BY ⚔️ ALI-HAIDER ⚔️' }, { quoted: message });
       return;
     }
 
@@ -159,7 +159,7 @@ async function songCommand(sock, chatId, message, requestedQuery = '') {
     } else {
       const search = await tryRequest(() => yts(query));
       if (!search?.videos?.length) {
-        await sock.sendMessage(chatId, { text: '❌ No results found. Try another song name.\n\nPOWERED BY ALI HAIDER ®' }, { quoted: message });
+        await sock.sendMessage(chatId, { text: '❌ No results found. Try another song name.\n\nPOWERED BY ⚔️ ALI-HAIDER ⚔️' }, { quoted: message });
         return;
       }
       video = search.videos[0];
@@ -221,7 +221,7 @@ async function songCommand(sock, chatId, message, requestedQuery = '') {
   } catch (error) {
     console.error('[song] command error:', error);
     await sock.sendMessage(chatId, {
-      text: `❌ ${error.message || 'Unable to download this song right now.'}\n\nPOWERED BY ALI HAIDER ®`
+      text: `❌ ${error.message || 'Unable to download this song right now.'}\n\nPOWERED BY ⚔️ ALI-HAIDER ⚔️`
     }, { quoted: message });
   }
 }

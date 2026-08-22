@@ -23,7 +23,7 @@ function youtubeId(input) {
 
 async function thumbnail(sock, chatId, message, q = '') {
   const query = getQuery(message, q);
-  if (!query) return sock.sendMessage(chatId, { text: 'Usage: .thumbnail <YouTube link or search term>\n\nPOWERED BY ALI HAIDER ®' }, { quoted: message });
+  if (!query) return sock.sendMessage(chatId, { text: 'Usage: .thumbnail <YouTube link or search term>\n\nPOWERED BY ⚔️ ALI-HAIDER ⚔️' }, { quoted: message });
   try {
     let video;
     const id = youtubeId(query);
@@ -36,10 +36,10 @@ async function thumbnail(sock, chatId, message, q = '') {
     const imageUrl = `https://i.ytimg.com/vi/${encodeURIComponent(video.videoId)}/maxresdefault.jpg`;
     return sock.sendMessage(chatId, {
       image: { url: imageUrl },
-      caption: `🖼️ *YOUTUBE THUMBNAIL*\n\nTitle: *${video.title || 'YouTube Thumbnail'}*\n\nPOWERED BY ALI HAIDER ®`
+      caption: `🖼️ *YOUTUBE THUMBNAIL*\n\nTitle: *${video.title || 'YouTube Thumbnail'}*\n\nPOWERED BY ⚔️ ALI-HAIDER ⚔️`
     }, { quoted: message });
   } catch (error) {
-    return sock.sendMessage(chatId, { text: `❌ Thumbnail download failed: ${error.message}\n\nPOWERED BY ALI HAIDER ®` }, { quoted: message });
+    return sock.sendMessage(chatId, { text: `❌ Thumbnail download failed: ${error.message}\n\nPOWERED BY ⚔️ ALI-HAIDER ⚔️` }, { quoted: message });
   }
 }
 

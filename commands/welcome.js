@@ -11,7 +11,7 @@ Your name has entered the Shadow Realm.
 Walk with discipline. Protect the peace.
 👥 Shinobi in the realm: {count}
 
-⚔️ *POWERED BY ALI HAIDER ®*
+⚔️ *POWERED BY ⚔️ ALI-HAIDER ⚔️*
 ╚════════════════════════╝`;
 
 const DEFAULT_GOODBYE = `╔═══〔 👁️ ITACHI UCHIHA MD 〕═══╗
@@ -28,7 +28,7 @@ Your path now returns to the shadows.
 Leave with honor. The story continues beyond the darkness.
 👥 Shinobi remaining: {count}
 
-⚔️ *POWERED BY ALI HAIDER ®*
+⚔️ *POWERED BY ⚔️ ALI-HAIDER ⚔️*
 ╚════════════════════════╝`;
 
 const LEGACY_WELCOME = '👋 Welcome {user} to *{group}*!';

@@ -24,9 +24,9 @@ const welcome = require('../commands/welcome');
     assert.strictEqual(botData.welcomeSettings[groupId].goodbyeEnabled, true);
     assert.strictEqual(saveCount, 2);
     assert.ok(botData.welcomeSettings[groupId].welcomeText.includes('ITACHI UCHIHA MD'));
-    assert.ok(botData.welcomeSettings[groupId].welcomeText.includes('POWERED BY ALI HAIDER ®'));
+    assert.ok(botData.welcomeSettings[groupId].welcomeText.includes('POWERED BY ⚔️ ALI-HAIDER ⚔️'));
     assert.ok(botData.welcomeSettings[groupId].goodbyeText.includes('ITACHI UCHIHA MD'));
-    assert.ok(botData.welcomeSettings[groupId].goodbyeText.includes('POWERED BY ALI HAIDER ®'));
+    assert.ok(botData.welcomeSettings[groupId].goodbyeText.includes('POWERED BY ⚔️ ALI-HAIDER ⚔️'));
 
     await welcome.handleParticipantUpdate(sock, {
         id: groupId,

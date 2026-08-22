@@ -9,7 +9,7 @@ function jidFooter(jid, options, mode = 'both') {
     const lines = ['━━━━━━━━━━━━━━━━━━━━━━━━━', '🆔 *JID FOOTER*'];
     if (mode === 'sender' || mode === 'both') lines.push(`👤 Sender: ${sender}`);
     if (mode === 'chat' || mode === 'both') lines.push(`💬 Chat: ${jid}`);
-    lines.push('POWERED BY ALI HAIDER ®');
+    lines.push('POWERED BY ⚔️ ALI-HAIDER ⚔️');
     return lines.join('\n');
 }
 

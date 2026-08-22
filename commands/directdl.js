@@ -48,7 +48,7 @@ function classify(mimetype, filename) {
 async function directDownload(sock, chatId, message, q = '') {
   const input = getQuery(message, q);
   if (!input) {
-    return sock.sendMessage(chatId, { text: 'Usage: .directdl <public file URL>\nAliases: .urldl, .download\n\nPOWERED BY ALI HAIDER ®' }, { quoted: message });
+    return sock.sendMessage(chatId, { text: 'Usage: .directdl <public file URL>\nAliases: .urldl, .download\n\nPOWERED BY ⚔️ ALI-HAIDER ⚔️' }, { quoted: message });
   }
 
   let parsed;
@@ -56,7 +56,7 @@ async function directDownload(sock, chatId, message, q = '') {
     parsed = new URL(input);
     if (!['http:', 'https:'].includes(parsed.protocol) || isBlockedHost(parsed.hostname)) throw new Error('blocked URL');
   } catch (_) {
-    return sock.sendMessage(chatId, { text: '❌ Provide a valid public HTTP or HTTPS file URL. Private and local addresses are blocked.\n\nPOWERED BY ALI HAIDER ®' }, { quoted: message });
+    return sock.sendMessage(chatId, { text: '❌ Provide a valid public HTTP or HTTPS file URL. Private and local addresses are blocked.\n\nPOWERED BY ⚔️ ALI-HAIDER ⚔️' }, { quoted: message });
   }
 
   try {
@@ -73,7 +73,7 @@ async function directDownload(sock, chatId, message, q = '') {
     const filename = filenameFromResponse(response, parsed.href);
     const mimetype = String(response.headers['content-type'] || 'application/octet-stream').split(';')[0];
     const kind = classify(mimetype, filename);
-    const caption = `📥 *DIRECT DOWNLOAD COMPLETE*\n\nFile: *${filename}*\nSize: *${(buffer.length / 1024 / 1024).toFixed(2)} MB*\n\nPOWERED BY ALI HAIDER ®`;
+    const caption = `📥 *DIRECT DOWNLOAD COMPLETE*\n\nFile: *${filename}*\nSize: *${(buffer.length / 1024 / 1024).toFixed(2)} MB*\n\nPOWERED BY ⚔️ ALI-HAIDER ⚔️`;
     const payload = kind === 'image'
       ? { image: buffer, caption }
       : kind === 'video'
@@ -84,7 +84,7 @@ async function directDownload(sock, chatId, message, q = '') {
     return sock.sendMessage(chatId, payload, { quoted: message });
   } catch (error) {
     console.error('[directdl] error:', error.message);
-    return sock.sendMessage(chatId, { text: `❌ Download failed: ${error.message}\n\nPOWERED BY ALI HAIDER ®` }, { quoted: message });
+    return sock.sendMessage(chatId, { text: `❌ Download failed: ${error.message}\n\nPOWERED BY ⚔️ ALI-HAIDER ⚔️` }, { quoted: message });
   }
 }
 

@@ -28,7 +28,7 @@ async function tagallCommand(sock, from, msg, isAdmin, q) {
         const footer = [
             '',
             '━━━━━━━━━━━━━━━━━━━━━━━━━',
-            '⚡ *POWERED BY ALI HAIDER ®*'
+            '⚡ *POWERED BY ⚔️ ALI-HAIDER ⚔️*'
         ].join('\n');
 
         const maxLength = 6000;

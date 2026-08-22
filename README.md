@@ -1,7 +1,7 @@
 # ITACHI UCHIHA MD
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=230&color=0:0d0000,50:8b0000,100:ff0022&text=ITACHI%20UCHIHA%20MD&fontColor=ffffff&fontSize=85&fontAlignY=40&animation=twinkling&desc=Powered%20By%20ALI%20HAIDER%20%C2%AE" />
+<img src="https://capsule-render.vercel.app/api?type=waving&height=230&color=0:0d0000,50:8b0000,100:ff0022&text=ITACHI%20UCHIHA%20MD&fontColor=ffffff&fontSize=85&fontAlignY=40&animation=twinkling&desc=Powered%20By%20%E2%9A%94%EF%B8%8FALI-HAIDER%E2%9A%94%EF%B8%8F" />
 
 <div style="
   margin-top: -60px;
@@ -20,14 +20,14 @@
     0 0 48px #8b0000;
   padding: 12px 0;">
   🔥 WAKE UP TO REALITY 🔥
-    "> Built on Baileys • Designed for Speed • Enhanced for Stability • POWERED BY ALI HAIDER ®
+    "> Built on Baileys • Designed for Speed • Enhanced for Stability • POWERED BY ⚔️ ALI-HAIDER ⚔️
 </div>
 </div>
 <div align="center">
   
 ![ITACHI UCHIHA MD official startup image](assets/itachi_menu.png)
 
-> **ITACHI UCHIHA MD** is a Itachi-themed WhatsApp automation bot POWERED BY **ALI HAIDER ®**. It combines group administration, moderation, media tools, AI-style chat, ranking, customizable join/leave messages, text styling, utility commands, and a structured command menu.
+> **ITACHI UCHIHA MD** is a Itachi-themed WhatsApp automation bot POWERED BY **⚔️ ALI-HAIDER ⚔️**. It combines group administration, moderation, media tools, AI-style chat, ranking, customizable join/leave messages, text styling, utility commands, and a structured command menu.
 
 | Project | Details |
 |---|---|
