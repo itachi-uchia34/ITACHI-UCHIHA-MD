@@ -1,6 +1,6 @@
 const settings = require('../settings');
 
-const REPOSITORY_URL = 'https://github.com/itachi-uchia34/Madara-Uchiha-MD';
+const REPOSITORY_URL = 'https://github.com/itachi-uchia34/ITACHI-UCHIHA-MD';
 
 module.exports = async function repoCommand(sock, chatId, msg) {
     const sendMsg = text => sock.sendMessage(chatId, { text }, { quoted: msg });

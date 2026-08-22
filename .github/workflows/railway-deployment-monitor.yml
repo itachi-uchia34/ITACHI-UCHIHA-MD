@@ -52,5 +52,5 @@ jobs:
 
       - name: Confirm startup assets
         run: |
-          test -s assets/madara_menu.png
+          test -s assets/itachi_menu.png
           test -s song.mp3

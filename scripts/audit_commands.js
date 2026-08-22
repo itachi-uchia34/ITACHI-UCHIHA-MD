@@ -6,13 +6,13 @@ const root = path.resolve(__dirname, '..');
 const commandsDir = path.join(root, 'commands');
 const commandFiles = fs.readdirSync(commandsDir).filter(name => name.endsWith('.js')).sort();
 const indexText = fs.readFileSync(path.join(root, 'index.js'), 'utf8');
-const styleText = fs.readFileSync(path.join(root, 'madara_style.js'), 'utf8');
+const styleText = fs.readFileSync(path.join(root, 'itachi_style.js'), 'utf8');
 const registryStart = indexText.indexOf('const commands =');
 const registryEnd = indexText.indexOf('\n};', registryStart);
 const registryText = registryStart >= 0 && registryEnd >= 0 ? indexText.slice(registryStart, registryEnd + 3) : '';
 
 const syntaxFailures = [];
-for (const file of [path.join(root, 'index.js'), path.join(root, 'madara_style.js'), ...commandFiles.map(f => path.join(commandsDir, f))]) {
+for (const file of [path.join(root, 'index.js'), path.join(root, 'itachi_style.js'), ...commandFiles.map(f => path.join(commandsDir, f))]) {
   try { execFileSync(process.execPath, ['--check', file], { stdio: 'pipe' }); }
   catch (err) { syntaxFailures.push({ file: path.relative(root, file), error: String(err.stderr || err.message).trim() }); }
 }
@@ -39,9 +39,9 @@ for (const file of commandFiles) {
 }
 
 const styleChecks = {
-  wrapperExists: /function\s+applyMadaraStyle/.test(styleText),
+  wrapperExists: /function\s+applyItachiStyle/.test(styleText),
   footerExists: /jidFooter|footer|jid/i.test(styleText),
-  dispatcherUsesStyle: /applyMadaraStyle/.test(indexText),
+  dispatcherUsesStyle: /applyItachiStyle/.test(indexText),
 };
 
 const result = {

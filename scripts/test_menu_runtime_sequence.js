@@ -21,7 +21,7 @@ function readStartupAudio() {
       return { key: { id: String(sent.length) } };
     }
   };
-  const image = fs.readFileSync(path.join(__dirname, '..', 'assets', 'madara_menu.png'));
+  const image = fs.readFileSync(path.join(__dirname, '..', 'assets', 'itachi_menu.png'));
   const menuText = allMenu.buildMenuText({ userId: 'test-session' }, {
     song: () => {}, ytmp3: () => {}, video: () => {}, ytmp4: () => {},
     directdl: () => {}, urldl: () => {}, download: () => {}

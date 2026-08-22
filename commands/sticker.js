@@ -77,7 +77,7 @@ module.exports = async function stickerCommand(sock, chatId, msg) {
         if (media.type === 'image') {
             stickerBuffer = await imageToSticker(input);
         } else {
-            const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'mardara-sticker-'));
+            const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'itachi-sticker-'));
             inputPath = path.join(tempDir, 'input.mp4');
             const outputPath = path.join(tempDir, 'output.webp');
             await fs.writeFile(inputPath, input);

@@ -25,7 +25,7 @@
 </div>
 <div align="center">
   
-![ITACHI UCHIHA MD official startup image](assets/madara_menu.png)
+![ITACHI UCHIHA MD official startup image](assets/itachi_menu.png)
 
 > **ITACHI UCHIHA MD** is a Itachi-themed WhatsApp automation bot POWERED BY **ALI HAIDER ®**. It combines group administration, moderation, media tools, AI-style chat, ranking, customizable join/leave messages, text styling, utility commands, and a structured command menu.
 
@@ -42,9 +42,9 @@
 
 ## Highlights
 
-The bot uses a shared Madara Uchiha response style for outgoing text and captions. When enabled, the optional JID footer can append the sender JID, chat JID, or both to eligible text responses. Media-only payloads, stickers, reactions, deletions, and audio-only messages are preserved without unnecessary text decoration.
+The bot uses a shared Itachi Uchiha response style for outgoing text and captions. When enabled, the optional JID footer can append the sender JID, chat JID, or both to eligible text responses. Media-only payloads, stickers, reactions, deletions, and audio-only messages are preserved without unnecessary text decoration.
 
-The official ITACHI UCHIHA MD startup artwork is bundled at `assets/madara_menu.png`. The same image is used by the web dashboard, WhatsApp startup message, Telegram startup notification, `.menu`, and `.allmenu`. Commands are displayed one per line with clear category separation. When a valid root-level `song.mp3` is present, `.menu` and `.allmenu` send it immediately after the menu image as the startup music. The bot validates the file before sending and logs a clear warning instead of attempting to deliver a corrupt or empty audio file.
+The official ITACHI UCHIHA MD startup artwork is bundled at `assets/itachi_menu.png`. The same image is used by the web dashboard, WhatsApp startup message, Telegram startup notification, `.menu`, and `.allmenu`. Commands are displayed one per line with clear category separation. When a valid root-level `song.mp3` is present, `.menu` and `.allmenu` send it immediately after the menu image as the startup music. The bot validates the file before sending and logs a clear warning instead of attempting to deliver a corrupt or empty audio file.
 
 ## Latest updates
 
@@ -56,7 +56,7 @@ The current release includes the following completed updates:
 | Reliable startup | Baileys version lookup is cached, bounded by a timeout, and protected by a bundled-version fallback. Existing sessions use persistent `SESSION_DIR` storage when configured. |
 | Pair-only user flow | Users need only enter a phone number or choose QR linking. No user-facing session ID is required; the internal browser-routing key is never displayed. |
 | Pairing-code copy | Alphanumeric codes such as `VEHW-5KVF` are accepted and copied by tapping the code on mobile or desktop, with Clipboard API and fallback support. |
-| New startup artwork | The supplied Itachi artwork is now the official dashboard, WhatsApp startup, Telegram, `.menu`, and `.allmenu` image at `assets/madara_menu.png`. |
+| New startup artwork | The supplied Itachi artwork is now the official dashboard, WhatsApp startup, Telegram, `.menu`, and `.allmenu` image at `assets/itachi_menu.png`. |
 | Startup music delivery | `.menu` and `.allmenu` send a validated root-level `song.mp3` after the image; invalid or empty audio is skipped with a visible server warning. |
 | Help-menu descriptions | Newly added group, owner, identity, tool, and fun commands appear in the horizontal one-command-per-line help menu with descriptions. |
 | Anti-abuse safety layer | Outbound pacing, duplicate suppression, broadcast recipient caps, rate-window limits, and an automatic circuit breaker reduce spam-like behavior. |
@@ -69,7 +69,7 @@ The current release includes the following completed updates:
 
 The group-management system includes administrator-protected member actions, group information, group metadata tools, structured announcements, polls, and participant utilities. Important commands include `.grouphelp`, `.admins`, `.members`, `.groupstats`, `.groupname`, `.setdesc`, `.grouplink`, `.promote`, `.demote`, `.kick`, `.add`, `.mute`, `.unmute`, `.tagall`, `.hidetag`, `.tagme`, `.mention`, and `.listonline`.
 
-The `.tagall` response includes the Madara header, group name, total participant count, a final-decree announcement, a numbered roster, and real WhatsApp mentions. Large rosters are split into multiple messages to stay within message-size limits.
+The `.tagall` response includes the Itachi header, group name, total participant count, a final-decree announcement, a numbered roster, and real WhatsApp mentions. Large rosters are split into multiple messages to stay within message-size limits.
 
 | Command | Purpose |
 |---|---|
@@ -181,27 +181,27 @@ Welcome and goodbye messages are triggered by group participant events and are c
 .welcomeconfig
 ```
 
-The default welcome and goodbye templates use the Madara Uchiha visual theme, including themed headers, separators, quotations, group rules, and a powered-by footer.
+The default welcome and goodbye templates use the Itachi Uchiha visual theme, including themed headers, separators, quotations, group rules, and a powered-by footer.
 
 ### Itachi chat and auto-replies
 
-The `.itachi` chat command provides randomized Itachi-themed responses, while the optional keyword-triggered auto-reply system remains configurable with `.madaraauto` and `.madaraconfig`. Auto-replies are stored per group and use a cooldown to reduce repeated responses.
+The `.itachi` chat command provides randomized Itachi-themed responses, while the optional keyword-triggered auto-reply system remains configurable with `.itachiauto` and `.itachiconfig`. Auto-replies are stored per group and use a cooldown to reduce repeated responses.
 
 ```text
 .itachi
 .itachi <question or prompt>
-.madaraauto on
-.madaraauto off
-.madaraauto text <template>
-.madaraauto reset
-.madaraconfig
+.itachiauto on
+.itachiauto off
+.itachiauto text <template>
+.itachiauto reset
+.itachiconfig
 ```
 
 Custom auto-reply templates support `{quote}` and `{user}`.
 
 ### Levels, XP, and rankings
 
-Users earn activity XP with a cooldown. Profiles, levels, titles, progress bars, message counts, and group leaderboards are persisted by the bot. Itachi-themed titles include **Sharingan Initiate**, **Eternal Mangekyo**, **Susanoo Commander**, **Rinnegan Sovereign**, **Ghost of the Uchiha**, **Madara’s Successor**, and **Infinite Tsukuyomi Lord**.
+Users earn activity XP with a cooldown. Profiles, levels, titles, progress bars, message counts, and group leaderboards are persisted by the bot. Itachi-themed titles include **Sharingan Initiate**, **Eternal Mangekyo**, **Susanoo Commander**, **Rinnegan Sovereign**, **Ghost of the Uchiha**, **Itachi’s Successor**, and **Infinite Tsukuyomi Lord**.
 
 ```text
 .rank
@@ -270,7 +270,7 @@ Media commands include downloads and conversions for supported services, practic
 | Command family | Examples |
 |---|---|
 | Downloads | `.song`, `.ytmp3`, `.video`, `.ytmp4`, `.youtube`, `.tiktok`, `.ttdl`, `.insta`, `.igdl`, `.facebook`, `.fbdown`, `.pinterest`, `.pindl`, `.twitter`, `.twtdl`, `.reddit`, `.reddown`, `.spotify`, `.spdl`, `.gdrive`, `.mf`, `.apk`, `.directdl`, `.urldl`, `.download`, `.customdl`, `.audiourl`, `.videourl`, `.imagedl`, `.docdl`, `.thumbnail` |
-| Menu categories | `MEDIA & DOWNLOADS`, `CUSTOM DOWNLOADS`, `MEDIA UTILITIES`, `AI & FUN`, `MADARA CHAT`, `DPZ PROFILES & POETRY`, `MADARA RANKING`, `FONTS & TEXT`, `DISCOVERY & PRODUCTIVITY`, `TOOLS`, `CHANNEL SETTINGS`, `ISLAMIC` |
+| Menu categories | `MEDIA & DOWNLOADS`, `CUSTOM DOWNLOADS`, `MEDIA UTILITIES`, `AI & FUN`, `ITACHI CHAT`, `DPZ PROFILES & POETRY`, `ITACHI RANKING`, `FONTS & TEXT`, `DISCOVERY & PRODUCTIVITY`, `TOOLS`, `CHANNEL SETTINGS`, `ISLAMIC` |
 | Media conversion | `.sticker`, `.s`, `.toimg`, `.tomp3`, `.tts` |
 | Image tools | `.blur`, `.invert`, `.crop`, `.flip`, `.grayscale`, `.removebg`, `.enlarge` |
 | Search and information | `.google`, `.wiki`, `.define`, `.weather`, `.github`, `.whois`, `.dnslookup`, `.ipinfo`, `.npm`, `.yts` |
@@ -309,14 +309,14 @@ The offline utility tools provide deterministic text, encoding, formatting, coun
 
 `.randomtool` generates a value within a range. `.timestamp` returns ISO, Unix-seconds, and Unix-milliseconds formats. `.urlencode` safely encodes text for a URL, `.hextext` converts UTF-8 text to hexadecimal, `.jsonfmt` validates and pretty-prints JSON, and `.textstats` reports character, word, line, and byte counts.
 
-### Madara fun commands
+### Itachi fun commands
 
-The fun command set is designed for lightweight entertainment and uses Madara-themed responses:
+The fun command set is designed for lightweight entertainment and uses Itachi-themed responses:
 
 ```text
 .fortune
 .compatibility
-.madarafact
+.itachifact
 .wisdom
 .battle
 .shinobibattle
@@ -392,8 +392,8 @@ The server must remain online for the bot to work. A phone, computer, Mac, or iP
 Clone the repository and install the declared dependencies:
 
 ```bash
-git clone https://github.com/itachi-uchia34/Madara-Uchiha-MD.git
-cd Madara-Uchiha-MD
+git clone https://github.com/itachi-uchia34/ITACHI-UCHIHA-MD.git
+cd Itachi-Uchiha-MD
 npm install
 npm start
 ```
@@ -437,7 +437,7 @@ Never commit real tokens, passwords, session credentials, or private keys. Use d
 The `.menu` and `.allmenu` commands use the following repository asset as their startup image:
 
 ```text
-assets/madara_menu.png
+assets/itachi_menu.png
 ```
 
 To replace the image, keep the same path and filename or update the image path in `commands/allmenu.js` and the standard `.menu` handler in `index.js`.
@@ -449,9 +449,9 @@ To replace the image, keep the same path and filename or update the image path i
 | `index.js` | Main bot process, session management, event handling, and command dispatch |
 | `commands/` | Command handlers and the command menu |
 | `commands/allmenu.js` | Registry-driven complete menu with one command per line |
-| `madara_style.js` | Shared Madara response wrapper and optional JID footer |
+| `itachi_style.js` | Shared Itachi response wrapper and optional JID footer |
 | `autoreact_emojis.js` | Broad emoji pool and varied reaction selector |
-| `assets/madara_menu.png` | Startup image used by `.menu` and `.allmenu` |
+| `assets/itachi_menu.png` | Startup image used by `.menu` and `.allmenu` |
 | `settings.js` | Bot name, owner, prefix, and channel settings |
 | `lib/` | Supporting utilities for conversion, metadata, uploads, permissions, and storage |
 

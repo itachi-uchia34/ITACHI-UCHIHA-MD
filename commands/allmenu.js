@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const settings = require('../settings');
-const menuImagePath = path.join(__dirname, '../assets/madara_menu.png');
+const menuImagePath = path.join(__dirname, '../assets/itachi_menu.png');
 
 function getMenuImage() {
     return fs.existsSync(menuImagePath) ? fs.readFileSync(menuImagePath) : { url: settings.startimage };
@@ -17,10 +17,10 @@ const MENU_GROUPS = {
     'MEDIA & DOWNLOADS': ['song', 'play', 'ytmp3', 'video', 'ytmp4', 'insta', 'igdl', 'tiktok', 'ttdl', 'facebook', 'fbdown', 'youtube', 'pinterest', 'pindl', 'twitter', 'twtdl', 'reddit', 'reddown', 'spotify', 'spdl', 'mf', 'apk', 'gdrive'],
     'CUSTOM DOWNLOADS': ['downloadmenu', 'directdl', 'urldl', 'download', 'customdl', 'audiourl', 'videourl', 'imagedl', 'docdl'],
     'MEDIA UTILITIES': ['thumbnail', 'lyrics', 'sticker', 'toimg', 'tomp3', 'shorturl'],
-    'AI & FUN': ['ai', 'madara', 'about', 'rules', 'fortune', 'compatibility', 'madarafact', 'battle', 'prediction', 'shinobiquiz', 'roastme', 'praise', 'gali', 'joke', 'meme', 'dare', 'truth', 'ascii', 'roast', 'compliment', 'ship', 'quote', 'fact', 'trivia', 'coinflip', 'roll', '8ball', 'choose', 'motivate'],
-    'MADARA CHAT': ['madara', 'madaraauto', 'madaraconfig'],
+    'AI & FUN': ['ai', 'itachi', 'about', 'rules', 'fortune', 'compatibility', 'itachifact', 'battle', 'prediction', 'shinobiquiz', 'roastme', 'praise', 'gali', 'joke', 'meme', 'dare', 'truth', 'ascii', 'roast', 'compliment', 'ship', 'quote', 'fact', 'trivia', 'coinflip', 'roll', '8ball', 'choose', 'motivate'],
+    'ITACHI CHAT': ['itachi', 'itachiauto', 'itachiconfig'],
     'DPZ PROFILES & POETRY': ['dpz', 'dpboys', 'dpgirls', 'dpzconfig', 'sadpoetry', 'romanticpoetry'],
-    'MADARA RANKING': ['rank', 'profile', 'leaderboard', 'level', 'levelconfig'],
+    'ITACHI RANKING': ['rank', 'profile', 'leaderboard', 'level', 'levelconfig'],
     'FONTS & TEXT': ['fonts', 'font1', 'font2', 'font3', 'font4', 'font5', 'font6', 'font7', 'font8', 'font9', 'font10', 'font11', 'font12', 'font13', 'font14', 'font15', 'font16', 'font17', 'font18', 'font19', 'font20', 'font21', 'font22', 'font23', 'font24', 'font25', 'font26', 'font27', 'font28', 'font29', 'font30', 'font31', 'font32', 'font33', 'font34', 'font35', 'font36', 'font37', 'font38', 'font39', 'font40', 'font41', 'font42', 'font43', 'font44', 'font45', 'font46', 'font47', 'font48', 'font49', 'font50'],
     'DISCOVERY & PRODUCTIVITY': ['news', 'movie', 'manga', 'lyrics', 'morse', 'remind', 'timer', 'tagme', 'listonline', 'snipe', 'editmsg', 'react'],
     'TOOLS': ['ping', 'time', 'date', 'chatid', 'randomtool', 'timestamp', 'urlencode', 'hextext', 'jsonfmt', 'textstats', 'countdown', 'password', 'uuid', 'color', 'dice', 'dp', 'vv', 'translate', 'base64', 'qr', 'shorturl', 'calc', 'weather', 'github', 'ipinfo', 'whois', 'dnslookup', 'screenshot', 'define', 'google', 'wiki', 'yts', 'playstore', 'npm', 'sticker', 'toimg', 'tomp3', 'tts', 'runtime', 'uptime', 'serverinfo', 'speedtest'],
@@ -42,8 +42,8 @@ const COMMAND_DESCRIPTIONS = {
     revokeinvite: 'Revoke the current group invite link',
     groupid: 'Show the current group JID',
     mention: 'Mention a user with a custom message',
-    about: 'Show bot identity and Madara branding',
-    rules: 'Display the Madara realm rules',
+    about: 'Show bot identity and Itachi branding',
+    rules: 'Display the Itachi realm rules',
     chatid: 'Show the current chat JID',
     randomtool: 'Generate a random number in a range',
     timestamp: 'Convert a date to Unix and ISO time',
@@ -51,15 +51,15 @@ const COMMAND_DESCRIPTIONS = {
     hextext: 'Convert text into hexadecimal',
     jsonfmt: 'Validate and format JSON text',
     textstats: 'Count text characters, words, lines, and bytes',
-    fortune: 'Receive a Madara-themed fortune',
+    fortune: 'Receive a Itachi-themed fortune',
     compatibility: 'Check your shinobi compatibility score',
-    madarafact: 'Receive Madara-themed wisdom',
+    itachifact: 'Receive Itachi-themed wisdom',
     battle: 'Start a random shinobi battle',
     prediction: 'Ask the realm for a prediction',
-    shinobiquiz: 'Get a Madara-themed shinobi quiz',
-    roastme: 'Receive a playful Madara roast',
-    praise: 'Receive Madara-themed praise',
-    gali: 'Send one of 100 playful Madara roast lines',
+    shinobiquiz: 'Get a Itachi-themed shinobi quiz',
+    roastme: 'Receive a playful Itachi roast',
+    praise: 'Receive Itachi-themed praise',
+    gali: 'Send one of 100 playful Itachi roast lines',
     song: 'Download audio as MP3',
     play: 'Search and download music as MP3',
     ytmp3: 'YouTube audio shortcut',

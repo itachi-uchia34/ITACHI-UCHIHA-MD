@@ -20,8 +20,8 @@ const msg = { key: { remoteJid: '123@g.us', participant: '555@s.whatsapp.net' } 
   for (const [name, fn, q, expected] of [
     ['randomtool', extra.randomtool, '10 20', 'RANDOM VALUE'],
     ['timestamp', extra.timestamp, '2026-08-20T12:00:00Z', 'TIMESTAMP'],
-    ['urlencode', extra.urlencode, 'Madara Uchiha', 'URL ENCODED'],
-    ['hextext', extra.hextext, 'Madara', 'HEX RESULT'],
+    ['urlencode', extra.urlencode, 'Itachi Uchiha', 'URL ENCODED'],
+    ['hextext', extra.hextext, 'Itachi', 'HEX RESULT'],
     ['jsonfmt', extra.jsonfmt, '{"a":1}', 'FORMATTED JSON'],
     ['textstats', extra.textstats, 'one two three', 'TEXT STATISTICS']
   ]) {

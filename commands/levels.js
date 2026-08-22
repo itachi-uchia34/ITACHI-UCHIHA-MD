@@ -8,7 +8,7 @@ const TITLES = [
     { level: 7, title: 'Ten-Tails Vessel' },
     { level: 8, title: 'Rinnegan Sovereign' },
     { level: 9, title: 'Ghost of the Uchiha' },
-    { level: 10, title: 'Madara’s Successor' },
+    { level: 10, title: 'Itachi’s Successor' },
     { level: 15, title: 'Infinite Tsukuyomi Lord' },
     { level: 20, title: 'Legendary War God' }
 ];
@@ -76,7 +76,7 @@ async function handleActivity(sock, from, msg, sender, isGroup, isMe, text, botD
     const newLevel = calculateLevel(profile.xp);
     saveBotData();
     if (config.announceLevelUp && newLevel > oldLevel) {
-        await sock.sendMessage(from, { text: `🎉 @${sender.split('@')[0]} has reached *Level ${newLevel} — ${getTitle(newLevel)}*!\n\nMadara recognizes your growing power.`, mentions: [sender] });
+        await sock.sendMessage(from, { text: `🎉 @${sender.split('@')[0]} has reached *Level ${newLevel} — ${getTitle(newLevel)}*!\n\nItachi recognizes your growing power.`, mentions: [sender] });
     }
     return true;
 }
@@ -123,7 +123,7 @@ async function levelConfigCommand(sock, from, msg, isAdmin, botData) {
     if (!from.endsWith('@g.us')) return sock.sendMessage(from, { text: '❌ Level settings are available in groups.' }, { quoted: msg });
     if (!isAdmin) return sock.sendMessage(from, { text: '❌ Only group admins can view level settings.' }, { quoted: msg });
     const config = getConfig(botData, from);
-    return sock.sendMessage(from, { text: `*Madara Level Configuration*\n\nTracking: ${config.enabled ? '✅ ON' : '❌ OFF'}\nLevel-up announcements: ${config.announceLevelUp ? '✅ ON' : '❌ OFF'}\n\nXP is awarded for normal group messages with a per-user activity cooldown.` }, { quoted: msg });
+    return sock.sendMessage(from, { text: `*Itachi Level Configuration*\n\nTracking: ${config.enabled ? '✅ ON' : '❌ OFF'}\nLevel-up announcements: ${config.announceLevelUp ? '✅ ON' : '❌ OFF'}\n\nXP is awarded for normal group messages with a per-user activity cooldown.` }, { quoted: msg });
 }
 
 module.exports = { TITLES, getConfig, getProfiles, calculateLevel, getTitle, handleActivity, rankCommand, leaderboardCommand, levelCommand, levelConfigCommand };

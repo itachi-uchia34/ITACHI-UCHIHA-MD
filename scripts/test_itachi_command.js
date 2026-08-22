@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { itachiCommand } = require('../commands/madarachat');
+const { itachiCommand } = require('../commands/itachichat');
 
 function makeSock() {
   const sent = [];

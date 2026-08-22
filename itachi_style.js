@@ -34,8 +34,8 @@ function styleContent(content, context = {}) {
     return content;
 }
 
-function applyMadaraStyle(sock, footerProvider = null) {
-    if (!sock || sock.__madaraStyleApplied) return sock;
+function applyItachiStyle(sock, footerProvider = null) {
+    if (!sock || sock.__itachiStyleApplied) return sock;
     const original = sock.sendMessage.bind(sock);
     sock.sendMessage = (jid, content, options) => {
         let footer = '';
@@ -45,8 +45,8 @@ function applyMadaraStyle(sock, footerProvider = null) {
         } catch (error) {}
         return original(jid, styleContent(content, { jid, options, footer }), options);
     };
-    sock.__madaraStyleApplied = true;
+    sock.__itachiStyleApplied = true;
     return sock;
 }
 
-module.exports = { TOP, BOTTOM, SEPARATOR, TITLE, jidFooter, styleText, styleContent, applyMadaraStyle };
+module.exports = { TOP, BOTTOM, SEPARATOR, TITLE, jidFooter, styleText, styleContent, applyItachiStyle };

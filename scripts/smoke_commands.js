@@ -23,11 +23,11 @@ async function run(name, fn, check) {
 (async () => {
   await run('extras.password', s => extras.password(s, '123@g.us', { key: { id: 'm1' } }, '16'), sent => assert(/SECRET SEAL GENERATED/.test(sent[0][1].text)));
   await run('extras.dice', s => extras.dice(s, '123@s.whatsapp.net', { key: { id: 'm2' } }, '6'), sent => assert(/BATTLEFIELD DICE/.test(sent[0][1].text)));
-  await run('extras.binary', s => binary(s, '123@s.whatsapp.net', { key: { id: 'm3' } }, 'Madara'), sent => assert(/Binary/.test(sent[0][1].text)));
-  await run('extras.morse', s => morse(s, '123@s.whatsapp.net', { key: { id: 'm4' } }, 'madara'), sent => assert(/Morse Code/.test(sent[0][1].text)));
+  await run('extras.binary', s => binary(s, '123@s.whatsapp.net', { key: { id: 'm3' } }, 'Itachi'), sent => assert(/Binary/.test(sent[0][1].text)));
+  await run('extras.morse', s => morse(s, '123@s.whatsapp.net', { key: { id: 'm4' } }, 'itachi'), sent => assert(/Morse Code/.test(sent[0][1].text)));
   await run('groupplus.poll', s => groupplus.poll(s, '123@g.us', { key: { id: 'm5' } }, true, 'Battle | Fire | Water'), sent => assert(sent[0][1].poll && sent[0][1].poll.values.length === 2));
   await run('groupplus.poll denial', s => groupplus.poll(s, '123@s.whatsapp.net', { key: { id: 'm6' } }, true, 'Battle | Fire | Water'), sent => assert(/group/i.test(sent[0][1].text)));
-  await run('fonts.font1', s => fonts.font1(s, '123@s.whatsapp.net', { key: { id: 'm7' } }, 'Madara'), sent => assert(sent[0][1].text));
+  await run('fonts.font1', s => fonts.font1(s, '123@s.whatsapp.net', { key: { id: 'm7' } }, 'Itachi'), sent => assert(sent[0][1].text));
   await run('levels.rank', s => levels.rankCommand(s, '123@g.us', { key: { id: 'm8', participant: '456@s.whatsapp.net' }, pushName: 'Shinobi' }, '', {}, '456@s.whatsapp.net'), sent => assert(sent[0][1].text));
   const boyPayloads = [];
   for (let i = 0; i < 10; i++) await run(`dpz boys ${i + 1}`, s => dpz.dpzCommand(s, '123@s.whatsapp.net', { key: { id: `m${9 + i}` } }, 'boys'), sent => { assert(Buffer.isBuffer(sent[0][1].image)); assert(/BOYS DPZ/.test(sent[0][1].caption)); boyPayloads.push(sent[0][1].image); });
@@ -48,8 +48,8 @@ async function run(name, fn, check) {
   let channelSaved = false;
   const saveChannel = () => { channelSaved = true; };
   assert(channel.parseChannel('120363123456789012@newsletter'));
-  assert(channel.parseChannel('https://whatsapp.com/channel/MadaraRealm'));
-  assert.strictEqual(channel.parseChannel('https://example.com/channel/MadaraRealm'), null);
+  assert(channel.parseChannel('https://whatsapp.com/channel/ItachiRealm'));
+  assert.strictEqual(channel.parseChannel('https://example.com/channel/ItachiRealm'), null);
   await run('channel set owner JID', s => channel.setChannelCommand(s, '123@s.whatsapp.net', { key: { id: 'm16' } }, true, '120363123456789012@newsletter', channelData, saveChannel, 'bot-1'), sent => assert(/Menu channel saved/.test(sent[0][1].text)));
   assert(channelSaved && channelData.channelSettings['bot-1'].jid === '120363123456789012@newsletter');
   await run('channel show', s => channel.channelCommand(s, '123@s.whatsapp.net', { key: { id: 'm17' } }, false, channelData, 'bot-1'), sent => assert(/120363123456789012@newsletter/.test(sent[0][1].text)));

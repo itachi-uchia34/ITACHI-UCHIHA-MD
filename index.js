@@ -210,7 +210,7 @@ const commands = {
     textstats: require('./commands/extrasplus').textstats,
     fortune: require('./commands/funplus').fortune,
     compatibility: require('./commands/funplus').compatibility,
-    madarafact: require('./commands/funplus').madarafact,
+    itachifact: require('./commands/funplus').itachifact,
     battle: require('./commands/funplus').battle,
     prediction: require('./commands/funplus').prediction,
     shinobiquiz: require('./commands/funplus').shinobiquiz,
@@ -270,14 +270,14 @@ const commands = {
 
     // AI
     ai: require('./commands/ai'),
-    itachi: require('./commands/madarachat').itachiCommand,
+    itachi: require('./commands/itachichat').itachiCommand,
     rank: require('./commands/levels').rankCommand,
     profile: require('./commands/levels').rankCommand,
     leaderboard: require('./commands/levels').leaderboardCommand,
     level: require('./commands/levels').levelCommand,
     levelconfig: require('./commands/levels').levelConfigCommand,
-    madaraauto: require('./commands/madarachat').madaraAutoCommand,
-    madaraconfig: require('./commands/madarachat').madaraConfig,
+    itachiauto: require('./commands/itachichat').itachiAutoCommand,
+    itachiconfig: require('./commands/itachichat').itachiConfig,
 
     // Fun
     joke: require('./commands/joke'),
@@ -485,7 +485,7 @@ if (tgBot) {
 
 // Import settings
 const settings = require('./settings');
-const { applyMadaraStyle } = require('./madara_style');
+const { applyItachiStyle } = require('./itachi_style');
 
 // Helper function to get connected bot numbers
 function getConnectedBotNumbers() {
@@ -767,7 +767,7 @@ async function getBaileysVersion() {
 }
 fs.ensureDirSync('./data');
 
-let botData = { antilinkGroups: {}, moderationGroups: {}, madaraAutoReplies: {}, levelSettings: {}, levelProfiles: {}, jidFooters: {}, totalBots: 0, registeredBots: [], statusSettings: {}, antiDelete: {}, userNames: {}, antiCall: {}, welcomeSettings: {}, dpzSettings: {}, channelSettings: {}, broadcastHistory: [] };
+let botData = { antilinkGroups: {}, moderationGroups: {}, itachiAutoReplies: {}, levelSettings: {}, levelProfiles: {}, jidFooters: {}, totalBots: 0, registeredBots: [], statusSettings: {}, antiDelete: {}, userNames: {}, antiCall: {}, welcomeSettings: {}, dpzSettings: {}, channelSettings: {}, broadcastHistory: [] };
 if (fs.existsSync(DATA_FILE)) {
     try { botData = fs.readJsonSync(DATA_FILE); } catch (e) {}
 }
@@ -1041,8 +1041,8 @@ class BotSession {
             // Apply anti-abuse protection before any session output is sent.
             applyAntiAbuse(this.sock);
 
-            // Apply the Madara Uchiha visual style to all outgoing command text and captions.
-            applyMadaraStyle(this.sock, () => (botData.jidFooters && botData.jidFooters[this.userId]) || { enabled: false, mode: 'both' });
+            // Apply the Itachi Uchiha visual style to all outgoing command text and captions.
+            applyItachiStyle(this.sock, () => (botData.jidFooters && botData.jidFooters[this.userId]) || { enabled: false, mode: 'both' });
 
             const normalizedPairingNumber = pairingNumber ? String(pairingNumber).replace(/\D/g, '') : '';
             if (normalizedPairingNumber && (normalizedPairingNumber.length < 8 || normalizedPairingNumber.length > 15)) {
@@ -1219,13 +1219,13 @@ class BotSession {
                             }
                         }
 
-                        // Madara keyword auto-reply for enabled groups
+                        // Itachi keyword auto-reply for enabled groups
                         if (!text.startsWith('.')) {
                             try {
-                                const madaraChat = require('./commands/madarachat');
-                                if (await madaraChat.handleAutoReply(this.sock, from, msg, text, sender, isGroup, isAdmin, isOwner, botData)) return;
+                                const itachiChat = require('./commands/itachichat');
+                                if (await itachiChat.handleAutoReply(this.sock, from, msg, text, sender, isGroup, isAdmin, isOwner, botData)) return;
                             } catch (e) {
-                                console.error('Madara Auto-Reply Error:', e);
+                                console.error('Itachi Auto-Reply Error:', e);
                             }
                         }
 
@@ -1326,7 +1326,7 @@ class BotSession {
                                             const allMenuCmd = require('./commands/allmenu');
                                             await allMenuCmd(this.sock, from, msg, this, commands);
 
-                                            // Send the validated repository startup song after the Madara menu text.
+                                            // Send the validated repository startup song after the Itachi menu text.
                                             const startupAudio = readStartupAudio();
                                             if (startupAudio) {
                                                 try {
@@ -1550,9 +1550,9 @@ class BotSession {
                                         case 'hextext': case 'tohextext': await commands.hextext(this.sock, from, msg, q); break;
                                         case 'jsonfmt': case 'jsonformat': await commands.jsonfmt(this.sock, from, msg, q); break;
                                         case 'textstats': case 'textstat': await commands.textstats(this.sock, from, msg, q); break;
-                                        case 'fortune': case 'madarafortune': await commands.fortune(this.sock, from, msg); break;
+                                        case 'fortune': case 'itachifortune': await commands.fortune(this.sock, from, msg); break;
                                         case 'compatibility': case 'compat': await commands.compatibility(this.sock, from, msg); break;
-                                        case 'madarafact': case 'wisdom': await commands.madarafact(this.sock, from, msg); break;
+                                        case 'itachifact': case 'wisdom': await commands.itachifact(this.sock, from, msg); break;
                                         case 'battle': case 'shinobibattle': await commands.battle(this.sock, from, msg); break;
                                         case 'prediction': case 'predict': await commands.prediction(this.sock, from, msg, q); break;
                                         case 'shinobiquiz': case 'quiz': await commands.shinobiquiz(this.sock, from, msg); break;
@@ -1626,8 +1626,8 @@ class BotSession {
                                         case 'leaderboard': case 'top': await commands.leaderboard(this.sock, from, msg, botData); break;
                                         case 'level': await commands.level(this.sock, from, msg, isAdmin, q, botData, saveBotData); break;
                                         case 'levelconfig': await commands.levelconfig(this.sock, from, msg, isAdmin, botData); break;
-                                        case 'madaraauto': await commands.madaraauto(this.sock, from, msg, isAdmin, q, botData, saveBotData); break;
-                                        case 'madaraconfig': await commands.madaraconfig(this.sock, from, msg, isAdmin, botData); break;
+                                        case 'itachiauto': await commands.itachiauto(this.sock, from, msg, isAdmin, q, botData, saveBotData); break;
+                                        case 'itachiconfig': await commands.itachiconfig(this.sock, from, msg, isAdmin, botData); break;
                                         case 'chatbot': await commands.chatbot(this.sock, from, msg, this, args); break;
                                         case 'gali': await commands.gali(this.sock, from, msg, this, args); break;
 

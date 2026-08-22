@@ -26,7 +26,7 @@ assert.strictEqual(manifest.name, 'ITACHI UCHIHA MD');
 assert.strictEqual(manifest.display, 'standalone');
 assert.strictEqual(manifest.start_url, '/');
 assert.strictEqual(manifest.orientation, 'portrait-primary');
-assert(fs.existsSync(path.join(__dirname, '..', 'assets', 'madara_menu.png')), 'Startup artwork missing');
+assert(fs.existsSync(path.join(__dirname, '..', 'assets', 'itachi_menu.png')), 'Startup artwork missing');
 
 const mediaQueries = (html.match(/@media/g) || []).length;
 assert(mediaQueries >= 2, 'Responsive media queries missing');

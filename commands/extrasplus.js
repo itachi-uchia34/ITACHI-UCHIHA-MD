@@ -9,7 +9,7 @@ function isGroup(from) {
 }
 
 async function about(sock, from, msg) {
-  return send(sock, from, msg, `👁️ *ABOUT ${settings.botName}*\n\n⚔️ Owner: *${settings.ownerName}*\n📦 Version: *${settings.version}*\n🛡️ Style: *Madara Uchiha*\n⚡ Mode: *Fast command system*\n\n> Wake up to reality.\n\nPOWERED BY ${settings.poweredBy}`);
+  return send(sock, from, msg, `👁️ *ABOUT ${settings.botName}*\n\n⚔️ Owner: *${settings.ownerName}*\n📦 Version: *${settings.version}*\n🛡️ Style: *Itachi Uchiha*\n⚡ Mode: *Fast command system*\n\n> Wake up to reality.\n\nPOWERED BY ${settings.poweredBy}`);
 }
 
 async function rules(sock, from, msg) {
@@ -29,7 +29,7 @@ async function mention(sock, from, msg, q) {
   const quoted = msg?.message?.extendedTextMessage?.contextInfo?.participant;
   const target = quoted || msg?.key?.participant || msg?.key?.remoteJid;
   if (!target) return send(sock, from, msg, '❌ Reply to a user or provide a valid message context.');
-  const text = (q || 'You have been summoned by Madara.').trim();
+  const text = (q || 'You have been summoned by Itachi.').trim();
   return send(sock, from, msg, `⚔️ @${target.split('@')[0]}\n\n${text}`, [target]);
 }
 

@@ -28,7 +28,7 @@ function makeTransport() {
   }, null, []);
   assert.strictEqual(replySock.messages.length, 2, 'target gali should react and send a reply');
   const reply = replySock.messages[1].payload;
-  assert(reply.text.includes('MADARA GALI ARENA'), 'reply should use Madara branding');
+  assert(reply.text.includes('ITACHI GALI ARENA'), 'reply should use Itachi branding');
   assert(reply.mentions.includes(target), 'reply should mention the quoted user');
   assert(reply.text.includes('@923001234567'), 'reply should include the target label');
 

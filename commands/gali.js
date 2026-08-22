@@ -19,7 +19,7 @@ const GALIS = [
   'your inner shinobi is currently stuck on the loading screen.',
   'you have the tactical awareness of a kunai thrown backward.',
   'your message brought noise but forgot to bring meaning.',
-  'even Madara would ask you to read the instructions first.',
+  'even Itachi would ask you to read the instructions first.',
   'your common sense took a day off and never returned.',
   'you are the human version of a weak Wi-Fi signal.',
   'your logic is doing hand signs but nothing is happening.',
@@ -108,13 +108,13 @@ module.exports = async function gali(sock, from, msg, session, args = []) {
   const target = msg?.mentionedJid?.[0] || msg?.quoted?.sender || null;
   if (!target && !requested) {
     return sock.sendMessage(from, {
-      text: '🔥 *MADARA GALI ARENA*\n\nExample: `.gali @user` or reply to a message with `.gali`.\n\n100 playful roast styles are available.'
+      text: '🔥 *ITACHI GALI ARENA*\n\nExample: `.gali @user` or reply to a message with `.gali`.\n\n100 playful roast styles are available.'
     }, { quoted: msg });
   }
 
   const label = target ? `@${target.split('@')[0]}` : requested;
   const roast = pick(GALIS).replaceAll('your', `${label}'s`);
-  const text = `🔥 *MADARA GALI ARENA*\n\n${label}, ${roast}\n\n> Playful shinobi roast — no hate, no protected-class insults.`;
+  const text = `🔥 *ITACHI GALI ARENA*\n\n${label}, ${roast}\n\n> Playful shinobi roast — no hate, no protected-class insults.`;
   const options = { text };
   if (target) options.mentions = [target];
 

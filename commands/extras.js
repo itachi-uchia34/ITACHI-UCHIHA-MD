@@ -18,7 +18,7 @@ async function choose(sock, from, msg, q) {
     const options = (q || '').split('|').map(value => value.trim()).filter(Boolean);
     if (options.length < 2) return reply(sock, from, msg, 'Usage: .choose Option 1 | Option 2 | Option 3');
     const selected = options[Math.floor(Math.random() * options.length)];
-    return reply(sock, from, msg, `⚔️ *MADARA HAS CHOSEN*\n\n${selected}`);
+    return reply(sock, from, msg, `⚔️ *ITACHI HAS CHOSEN*\n\n${selected}`);
 }
 
 async function eightball(sock, from, msg, q) {
@@ -29,7 +29,7 @@ async function eightball(sock, from, msg, q) {
 
 async function motivate(sock, from, msg) {
     const lines = ['Rise above the chaos.', 'Your limits are only another battlefield.', 'Endure the darkness and command the light.', 'Strength is built when surrender is refused.', 'A true shinobi turns pressure into power.'];
-    return reply(sock, from, msg, `🔥 *MADARA'S DECREE*\n\n${lines[Math.floor(Math.random() * lines.length)]}`);
+    return reply(sock, from, msg, `🔥 *ITACHI'S DECREE*\n\n${lines[Math.floor(Math.random() * lines.length)]}`);
 }
 
 async function password(sock, from, msg, q) {

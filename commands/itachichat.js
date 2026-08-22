@@ -23,15 +23,15 @@ const QUOTES = [
 
 const AUTO_DEFAULTS = {
     enabled: false,
-    warning: '👁️‍🗨️ {user}, Madara has heard your call. {quote}',
+    warning: '👁️‍🗨️ {user}, Itachi has heard your call. {quote}',
     cooldownMs: 15000
 };
 const cooldowns = new Map();
 
 function getConfig(botData, groupId) {
-    if (!botData.madaraAutoReplies) botData.madaraAutoReplies = {};
-    if (!botData.madaraAutoReplies[groupId]) botData.madaraAutoReplies[groupId] = { ...AUTO_DEFAULTS };
-    const config = botData.madaraAutoReplies[groupId];
+    if (!botData.itachiAutoReplies) botData.itachiAutoReplies = {};
+    if (!botData.itachiAutoReplies[groupId]) botData.itachiAutoReplies[groupId] = { ...AUTO_DEFAULTS };
+    const config = botData.itachiAutoReplies[groupId];
     config.enabled = Boolean(config.enabled);
     config.warning = config.warning || AUTO_DEFAULTS.warning;
     config.cooldownMs = Number(config.cooldownMs) || AUTO_DEFAULTS.cooldownMs;
@@ -47,8 +47,8 @@ function render(template, user, quote) {
     return template.replaceAll('{user}', `@${user.split('@')[0]}`).replaceAll('{quote}', quote);
 }
 
-function isMadaraPrompt(text = '') {
-    return /\b(madara|uchiha|wake up to reality|shinobi|infinite tsukuyomi)\b/i.test(text);
+function isItachiPrompt(text = '') {
+    return /\b(itachi|uchiha|wake up to reality|shinobi|infinite tsukuyomi)\b/i.test(text);
 }
 
 async function itachiCommand(sock, from, msg, q) {
@@ -60,41 +60,41 @@ async function itachiCommand(sock, from, msg, q) {
     return sock.sendMessage(from, { text: response }, { quoted: msg });
 }
 
-async function madaraAutoCommand(sock, from, msg, isAdmin, q, botData, saveBotData) {
+async function itachiAutoCommand(sock, from, msg, isAdmin, q, botData, saveBotData) {
     if (!from.endsWith('@g.us')) return sock.sendMessage(from, { text: '❌ This command can only be used in groups.' }, { quoted: msg });
-    if (!isAdmin) return sock.sendMessage(from, { text: '❌ Only group admins can change Madara auto-reply settings.' }, { quoted: msg });
+    if (!isAdmin) return sock.sendMessage(from, { text: '❌ Only group admins can change Itachi auto-reply settings.' }, { quoted: msg });
     const config = getConfig(botData, from);
     const args = (q || '').trim().split(/\s+/);
     const action = (args.shift() || '').toLowerCase();
     if (action === 'on' || action === 'off') {
         config.enabled = action === 'on';
         saveBotData();
-        return sock.sendMessage(from, { text: `✅ Madara auto-replies ${config.enabled ? 'enabled' : 'disabled'}.` }, { quoted: msg });
+        return sock.sendMessage(from, { text: `✅ Itachi auto-replies ${config.enabled ? 'enabled' : 'disabled'}.` }, { quoted: msg });
     }
     if (action === 'text' && args.length) {
         const warning = args.join(' ');
         if (!warning.includes('{quote}')) return sock.sendMessage(from, { text: '⚠️ Custom auto-reply text must include {quote}.' }, { quoted: msg });
         config.warning = warning;
         saveBotData();
-        return sock.sendMessage(from, { text: '✅ Madara auto-reply template saved.' }, { quoted: msg });
+        return sock.sendMessage(from, { text: '✅ Itachi auto-reply template saved.' }, { quoted: msg });
     }
     if (action === 'reset') {
         config.warning = AUTO_DEFAULTS.warning;
         saveBotData();
-        return sock.sendMessage(from, { text: '✅ Madara auto-reply template reset.' }, { quoted: msg });
+        return sock.sendMessage(from, { text: '✅ Itachi auto-reply template reset.' }, { quoted: msg });
     }
-    return sock.sendMessage(from, { text: '*Madara Auto-Reply*\n\n.madaraauto on/off\n.madaraauto text <message>\n.madaraauto reset\n\nPlaceholders: {user}, {quote}' }, { quoted: msg });
+    return sock.sendMessage(from, { text: '*Itachi Auto-Reply*\n\n.itachiauto on/off\n.itachiauto text <message>\n.itachiauto reset\n\nPlaceholders: {user}, {quote}' }, { quoted: msg });
 }
 
-async function madaraConfig(sock, from, msg, isAdmin, botData) {
+async function itachiConfig(sock, from, msg, isAdmin, botData) {
     if (!from.endsWith('@g.us')) return sock.sendMessage(from, { text: '❌ This command can only be used in groups.' }, { quoted: msg });
-    if (!isAdmin) return sock.sendMessage(from, { text: '❌ Only group admins can view Madara auto-reply settings.' }, { quoted: msg });
+    if (!isAdmin) return sock.sendMessage(from, { text: '❌ Only group admins can view Itachi auto-reply settings.' }, { quoted: msg });
     const config = getConfig(botData, from);
-    return sock.sendMessage(from, { text: `*Madara Auto-Reply Configuration*\n\nStatus: ${config.enabled ? '✅ ON' : '❌ OFF'}\nTemplate: ${config.warning}\nCooldown: ${config.cooldownMs / 1000}s` }, { quoted: msg });
+    return sock.sendMessage(from, { text: `*Itachi Auto-Reply Configuration*\n\nStatus: ${config.enabled ? '✅ ON' : '❌ OFF'}\nTemplate: ${config.warning}\nCooldown: ${config.cooldownMs / 1000}s` }, { quoted: msg });
 }
 
 async function handleAutoReply(sock, from, msg, text, sender, isGroup, isAdmin, isOwner, botData) {
-    if (!isGroup || isAdmin || isOwner || !isMadaraPrompt(text)) return false;
+    if (!isGroup || isAdmin || isOwner || !isItachiPrompt(text)) return false;
     const config = getConfig(botData, from);
     if (!config.enabled) return false;
     const now = Date.now();
@@ -106,4 +106,4 @@ async function handleAutoReply(sock, from, msg, text, sender, isGroup, isAdmin, 
     return true;
 }
 
-module.exports = { QUOTES, getConfig, itachiCommand, madaraAutoCommand, madaraConfig, handleAutoReply, chooseQuote };
+module.exports = { QUOTES, getConfig, itachiCommand, itachiAutoCommand, itachiConfig, handleAutoReply, chooseQuote };

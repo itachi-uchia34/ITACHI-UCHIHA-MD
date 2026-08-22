@@ -7,7 +7,7 @@ const SAD_POEMS = [
 const ROMANTIC_POEMS = [
     'If the stars are a battlefield, I will stand by your side,\nThrough every endless night and every changing tide.\nYour name is the peace my restless heart cannot hide.',
     'You are the quiet moon above my restless sea,\nThe one rare dream reality allowed to stay with me.\nIn a world of chaos, you feel like destiny.',
-    'Let the world chase power and the shadows chase fame,\nI found my greatest victory when I learned your name.\nEven Madara’s storm would bow before this flame.'
+    'Let the world chase power and the shadows chase fame,\nI found my greatest victory when I learned your name.\nEven Itachi’s storm would bow before this flame.'
 ];
 
 function pick(items) {

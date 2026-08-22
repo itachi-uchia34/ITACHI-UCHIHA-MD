@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    startimage: path.join(__dirname, 'assets', 'madara_menu.png'),
+    startimage: path.join(__dirname, 'assets', 'itachi_menu.png'),
     ownerNumber: process.env.OWNER_NUMBER || '+923196181562',
     botName: 'ITACHI UCHIHA MD',
     ownerName: 'ALI HAIDER ®',

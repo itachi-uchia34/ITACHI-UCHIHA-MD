@@ -8,13 +8,13 @@ function sock() {
 const msg = { key: { remoteJid: '123@g.us', participant: '555@s.whatsapp.net' } };
 (async () => {
   const tests = [
-    ['fortune', fun.fortune, [], 'MADARA FORTUNE'],
+    ['fortune', fun.fortune, [], 'ITACHI FORTUNE'],
     ['compatibility', fun.compatibility, [], 'COMPATIBILITY'],
-    ['madarafact', fun.madarafact, [], 'MADARA WISDOM'],
+    ['itachifact', fun.itachifact, [], 'ITACHI WISDOM'],
     ['battle', fun.battle, [], 'SHINOBI BATTLE'],
-    ['prediction', fun.prediction, ['Will I win?'], 'MADARA PREDICTION'],
+    ['prediction', fun.prediction, ['Will I win?'], 'ITACHI PREDICTION'],
     ['shinobiquiz', fun.shinobiquiz, [], 'SHINOBI QUIZ'],
-    ['roastme', fun.roastme, [], 'MADARA ROAST'],
+    ['roastme', fun.roastme, [], 'ITACHI ROAST'],
     ['praise', fun.praise, [], 'SHINOBI PRAISE']
   ];
   for (const [name, fn, args, expected] of tests) {
